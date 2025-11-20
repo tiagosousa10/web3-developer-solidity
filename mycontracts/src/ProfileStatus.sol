@@ -1,7 +1,13 @@
 // SPDX-License-Indentifier: UNLICENSED
 pragma solidity ^0.8.13;
+import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
 
-contract ProfileStatus {
+contract ProfileStatus is ContractMetadata {
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
     struct Status {
         string statusMessage;
         bool exists;
@@ -33,5 +39,14 @@ contract ProfileStatus {
     function getStatus(address wallet) public view returns (string memory) {
         require(userStatus[wallet].exists, "Status does not exist");
         return userStatus[wallet].statusMessage;
+    }
+    function _canSetContractURI()
+        internal
+        view
+        virtual
+        override
+        returns (bool)
+    {
+        return msg.sender == owner;
     }
 }
