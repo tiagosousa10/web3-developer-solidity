@@ -12,6 +12,7 @@ export function userMetadata() {
   const [tokenSupply, setTokenSupply] = useState<any>(null);
   const [tokenSymbol, setTokenSymbol] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [contractUser, setContractUser] = useState<any>(null);
 
   const clientIdWeb = createThirdwebClient({
     clientId: process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID as string,
@@ -30,6 +31,8 @@ export function userMetadata() {
           chain: polygonAmoy,
         });
 
+        setContractUser(contract);
+
         const supply = await totalSupply({ contract });
         setTokenSupply(supply);
 
@@ -47,5 +50,12 @@ export function userMetadata() {
     loadMetadata();
   }, []);
 
-  return { metadata, tokenSupply, tokenSymbol, isLoading, imageUrl };
+  return {
+    metadata,
+    tokenSupply,
+    tokenSymbol,
+    isLoading,
+    imageUrl,
+    contractUser,
+  };
 }

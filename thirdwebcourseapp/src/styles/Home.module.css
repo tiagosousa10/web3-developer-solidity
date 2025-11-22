@@ -204,10 +204,13 @@
   margin-top: 20px;
 }
 .matchButton {
-  padding: 1rem;
-  font-size: 16px;
+  padding: 0.8rem;
+  font-size: 14px;
   font-weight: 500;
   border: none;
   border-radius: 8px;
   margin-right: 10px;
+  background-color: #fff;
+  color: #000;
+  margin-top: 0.8rem;
 }
