@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
 import { createThirdwebClient } from "thirdweb";
+import { ConnectButtonWrapper } from "./connect-button-wrapper";
 
 const clientId = process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID;
 const secretKey = process.env.NEXT_PUBLIC_TEMPLATE_SECRET_KEY;
@@ -22,7 +23,7 @@ export default function Navbar() {
         </p>
       </Link>
 
-      <ConnectButton client={client} />
+      <ConnectButtonWrapper />
     </div>
   );
 }
