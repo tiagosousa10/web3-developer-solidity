@@ -34,9 +34,9 @@ export default function ERC20Project() {
         <div className={styles.componentCard}>
           <h3>Token Stats</h3>
           {isLoading ? (
-            <p>Loading supply...</p>
+            <p className="text-[12px]">Loading supply...</p>
           ) : (
-            <p>
+            <p className="text-[12px]">
               Total supply: {tokenSupply} {tokenSymbol}
             </p>
           )}
@@ -44,13 +44,13 @@ export default function ERC20Project() {
         <div className={styles.componentCard}>
           <h3>Token Balance</h3>
           {isLoadingBalance ? (
-            <p>Loading balance...</p>
+            <p className="text-[12px]">Loading balance...</p>
           ) : isErrorBalance ? (
-            <p>Erro ao carregar balance</p>
+            <p className="text-[12px]">Erro ao carregar balance</p>
           ) : !balance ? (
-            <p>Sem dados de balance</p>
+            <p className="text-[12px]">Sem dados de balance</p>
           ) : (
-            <p>
+            <p className="text-[12px]">
               {balance.displayValue} {balance.symbol ?? tokenSymbol}
             </p>
           )}
@@ -71,7 +71,9 @@ export default function ERC20Project() {
         </div>
         <div className={styles.componentCard}>
           <h3>Earn Tokens</h3>
-          <p>Earn more tokens by staking an ERC721 NFT.</p>
+          <p className="text-[12px]">
+            Earn more tokens by staking an ERC721 NFT.
+          </p>
           <div className="flex gap-4 justify-center items-center mx-auto">
             <Link href="/project/staking">
               <button className={styles.matchButton}>Stake ERC721</button>
